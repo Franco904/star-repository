@@ -1,4 +1,4 @@
-package com.example.star_notification.app
+package com.example.star_notification.application
 
 import android.app.Application
 import android.app.NotificationChannel
@@ -6,6 +6,8 @@ import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import com.example.star_notification.application.notificationChannels.StarNotificationChannel
 import com.example.star_notification.task.StarNotificationWorker
 import com.example.star_notification.task.WorkManagerHandler
 import java.util.*
@@ -13,7 +15,7 @@ import java.util.concurrent.TimeUnit
 
 class MyApplication : Application() {
     private val workManagerHandler by lazy {
-        WorkManagerHandler(applicationContext)
+        WorkManagerHandler(WorkManager.getInstance(this))
     }
 
     override fun onCreate() {

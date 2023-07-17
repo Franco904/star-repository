@@ -1,4 +1,4 @@
-package com.example.star_notification.app
+package com.example.star_notification.application.notificationChannels
 
 import android.app.NotificationManager
 
